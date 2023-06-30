@@ -1,0 +1,55 @@
+CREATE DATABASE sgmec;
+USE sgmec;
+/*Tablas que no tiene llave foraneas*/
+	CREATE TABLE Estado(
+	id_estado INT(8) PRIMARY KEY AUTO_INCREMENT,
+	tipo_estado VARCHAR (50) NOT NULL
+	);
+
+	CREATE TABLE Ubicacion(
+	id_ubicacion INT(8)PRIMARY KEY AUTO_INCREMENT,
+	ubicacion VARCHAR(100) NOT NULL
+	);
+
+	CREATE TABLE Mantenimiento(
+	id_mantenimiento INT(8) PRIMARY KEY AUTO_INCREMENT,
+	tipo_mantenimiento VARCHAR(50) NOT NULL
+	);
+/*Tablas que cuentan con llaves foraneas*/
+	CREATE TABLE Reportes(
+	id_reporte INT(8)  PRIMARY KEY AUTO_INCREMENT,
+	id_mantenimiento INT,
+	id_usuario INT,
+	descripcion VARCHAR(200) NOT NULL,
+	id_equipo INT,
+	fecha DATE,
+	FOREIGN KEY(id_mantenimiento)REFERENCES Mantenimiento (id_mantenimiento),
+	FOREIGN KEY(id_usuario)REFERENCES Usuarios (id_usuario),
+	FOREIGN KEY(id_equipo)REFERENCES Equipos (id_equipo)
+	);
+
+	CREATE TABLE Equipos(
+	id_equipo INT(8) PRIMARY KEY AUTO_INCREMENT,
+	id_ubicacion INT,
+	modelo VARCHAR(150) NOT NULL,
+	marca VARCHAR(150) NOT NULL,
+	especificaciones VARCHAR(1000) NOT NULL,
+	observaciones VARCHAR(400) NOT NULL,
+	fallo_repor VARCHAR (150),
+	FOREIGN KEY(id_ubicacion)REFERENCES Ubicacion (id_ubicacion)
+	);
+
+	CREATE TABLE Departamento(
+	id_departamento INT(8) PRIMARY KEY AUTO_INCREMENT,
+	tipo_departamento VARCHAR(150) NOT NULL
+	);
+
+	CREATE TABLE Usuarios(
+	id_usuario INT(8) PRIMARY KEY AUTO_INCREMENT,
+	nombreu VARCHAR(100) NOT NULL,
+	appu VARCHAR(100) NOT NULL,
+	apmu VARCHAR(100) NOT NULL,
+	emailu VARCHAR(100) NOT NULL,
+	id_departamento INT,
+	FOREIGN KEY(id_departamento)REFERENCES Departamento (id_departamento)
+	);
