@@ -3,47 +3,28 @@ USE sgmec;
 /*Tablas que no tiene llave foraneas*/
 	CREATE TABLE Estado(
 	id_estado INT(8) PRIMARY KEY AUTO_INCREMENT,
-	tipo_estado VARCHAR (50) NOT NULL
+	tipo_estado VARCHAR (100) NOT NULL,
+	observaciones VARCHAR(500) NOT NULL
 	);
 
 	CREATE TABLE Ubicacion(
 	id_ubicacion INT(8)PRIMARY KEY AUTO_INCREMENT,
-	ubicacion VARCHAR(100) NOT NULL
+	ubicacion VARCHAR(100) NOT NULL,
+	lugar VARCHAR(200) NOT NULL
 	);
 
 	CREATE TABLE Mantenimiento(
 	id_mantenimiento INT(8) PRIMARY KEY AUTO_INCREMENT,
-	tipo_mantenimiento VARCHAR(50) NOT NULL
-	);
-/*Tablas que cuentan con llaves foraneas*/
-	CREATE TABLE Reportes(
-	id_reporte INT(8)  PRIMARY KEY AUTO_INCREMENT,
-	id_mantenimiento INT,
-	id_usuario INT,
-	descripcion VARCHAR(200) NOT NULL,
-	id_equipo INT,
-	fecha DATE,
-	FOREIGN KEY(id_mantenimiento)REFERENCES Mantenimiento (id_mantenimiento),
-	FOREIGN KEY(id_usuario)REFERENCES Usuarios (id_usuario),
-	FOREIGN KEY(id_equipo)REFERENCES Equipos (id_equipo)
-	);
-
-	CREATE TABLE Equipos(
-	id_equipo INT(8) PRIMARY KEY AUTO_INCREMENT,
-	id_ubicacion INT,
-	modelo VARCHAR(150) NOT NULL,
-	marca VARCHAR(150) NOT NULL,
-	especificaciones VARCHAR(1000) NOT NULL,
-	observaciones VARCHAR(400) NOT NULL,
-	fallo_repor VARCHAR (150),
-	FOREIGN KEY(id_ubicacion)REFERENCES Ubicacion (id_ubicacion)
+	tipo_mantenimiento VARCHAR(50) NOT NULL,
+	descripcion VARCHAR(200) NOT NULL
 	);
 
 	CREATE TABLE Departamento(
 	id_departamento INT(8) PRIMARY KEY AUTO_INCREMENT,
-	tipo_departamento VARCHAR(150) NOT NULL
+	tipo_departamento VARCHAR(150) NOT NULL,
+	descripcion VARCHAR(200) NOT NULL
 	);
-
+/*Tablas que cuentan con llaves foraneas*/
 	CREATE TABLE Usuarios(
 	id_usuario INT(8) PRIMARY KEY AUTO_INCREMENT,
 	nombreu VARCHAR(100) NOT NULL,
@@ -53,3 +34,34 @@ USE sgmec;
 	id_departamento INT,
 	FOREIGN KEY(id_departamento)REFERENCES Departamento (id_departamento)
 	);
+
+	CREATE TABLE Equipos(
+	id_equipo INT(15) PRIMARY KEY,
+	id_ubicacion INT,
+	modelo VARCHAR(150) NOT NULL,
+	marca VARCHAR(150) NOT NULL,
+	especificaciones VARCHAR(1500) NOT NULL,
+	observaciones VARCHAR(500) NOT NULL,
+	fallo_repor VARCHAR (500),
+	FOREIGN KEY(id_ubicacion)REFERENCES Ubicacion (id_ubicacion)
+	);
+
+	CREATE TABLE Reportes(
+	id_reporte INT(8)  PRIMARY KEY AUTO_INCREMENT,
+	id_mantenimiento INT,
+	id_usuario INT,
+	id_equipo INT,
+	descripcion VARCHAR(200) NOT NULL,
+	fecha DATE,
+	FOREIGN KEY(id_mantenimiento)REFERENCES Mantenimiento (id_mantenimiento),
+	FOREIGN KEY(id_usuario)REFERENCES Usuarios (id_usuario),
+	FOREIGN KEY(id_equipo)REFERENCES Equipos (id_equipo)
+	);
+
+/*Pasos para realizar una consulta de INNER JOIN By JC
+	1.- Traer todos lo datos de la tabla principal a usar en el crud y de donde es (FROM).
+	2.- Cambiar el id de la otra tablas heredada por el tipo de texto a mostrar (JOIN).
+	3.- Comparativa de las tablas con las mismas id a heredar(ON).
+*/
+	SELECT usuarios.id_usuario,usuarios.nombreu, usuarios.appu, usuarios.apmu, usuarios.emailu,departamento.tipo_departamento FROM usuarios
+	JOIN departamento ON usuarios.id_departamento = departamento.id_departamento
