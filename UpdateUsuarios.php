@@ -15,7 +15,7 @@
     <meta name="author" content="">
     <link rel="Website Icon" type="png" href="img/conalep-logo.png">
 
-    <title>Conalep  - Dashboard</title>
+    <title>Conalep - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -46,7 +46,7 @@
             </a>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <hr class="sidebar-divider my-0 border border-3 border-success">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
@@ -56,93 +56,63 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <hr class="sidebar-divider border border-3 border-success">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Tablas Principales.
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                    <span>Equipos</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Reportes</span></a>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider border border-3 border-success">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Tablas Secundarias.
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="Estados.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Estados</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="Ubicacion.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Ubicación</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="Mantenimiento.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Mantenimiento</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="Departamentos.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Departamentos</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block border border-3 border-success">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -162,7 +132,7 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-dark d-md-none rounded-circle mr-3">
+                    <button id="sidebarToggleTop" class="btn btn-white d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
@@ -174,7 +144,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h1 mb-0 text-gray-800">Panel Administrativo</h1>
+                        <h1 class="h1 mb-0 text-gray-800">Total de Registros de Tablas</h1>
                         <a href="./php/index.php" class="mb-0 d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm">
                             <i class="fas fa-download fa-sm" style="color: #00ff40"></i> Respaldo de Base de Datos</a>
                     </div>
@@ -214,9 +184,17 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total de Departamentos</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    <?php
+                                                        //Se incluye la Conexion a la base de datos y se organizan por medio de Id de cada tabla.
+                                                        include 'Models/conexion.php';
+                                                            $query = "SELECT id_departamento FROM departamento ORDER BY id_departamento";
+                                                            $query_run = mysqli_query($conexion, $query);
+                                                            $row = mysqli_num_rows($query_run);
+                                                                echo $row;
+                                                    ?>
+                                                </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -323,7 +301,7 @@
                                             <div class="py-1 col-md-6">
                                                 <div class="form-floating mb-md-0">
                                                     <label class="text-dark"><strong>¿Cuál es tu Departamento?</strong></label>
-                                                    <select class="form-control" type="text" name="id_departamento">
+                                                    <select class="form-control" type="text" name="id_departamento" value="<?= $datos->id_departamento ?>">
                                                         <?php
                                                         // Conexión a la base de datos
                                                         $conexion = mysqli_connect("localhost", "root", "", "sgmec");
@@ -355,7 +333,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <input class="btn btn-outline-success text-dark"type="submit" name="btnmodificar" size="10" value="Modificar Registro">
+                                        <input class="btn btn-outline-success text-dark" href="/index.php" type="submit" name="btnmodificar" size="10" value="Modificar Registro">
                                     </form>
                                 </div>
                             </div>
