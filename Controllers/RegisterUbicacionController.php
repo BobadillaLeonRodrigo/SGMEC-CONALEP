@@ -9,7 +9,7 @@ if (!empty($_POST["btnregistro"])) {
         $ubicacion = $_POST["ubicacion"];
         $lugar = $_POST["lugar"];
         //Se crea variable para la implementación de la conexión y la inserción de datos con una consulta.
-        $sql = $conexion->query("insert into ubicacion(ubicacion,lugar)
+        $sql = $conexion->query("INSERT INTO ubicacion(ubicacion,lugar)
                     values ('$ubicacion','$lugar')");
         if ($sql == 1) {
             echo '<div class="alert alert-success text-center"><i class="bi bi-person-add"></i> Edificio Registrado Correctamente</div>';

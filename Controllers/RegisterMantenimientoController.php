@@ -9,7 +9,7 @@ if (!empty($_POST["btnregistro"])) {
         $tipo_mantenimiento = $_POST["tipo_mantenimiento"];
         $descripcion = $_POST["descripcion"];
         //Se crea variable para la implementación de la conexión y la inserción de datos con una consulta.
-        $sql = $conexion->query("insert into mantenimiento (tipo_mantenimiento,descripcion)
+        $sql = $conexion->query("INSERT INTO mantenimiento (tipo_mantenimiento,descripcion)
                     values ('$tipo_mantenimiento','$descripcion')");
         if ($sql == 1) {
             echo '<div class="alert alert-success text-center"><i class="bi bi-person-add"></i> Mantenimiento Registrado Correctamente</div>';

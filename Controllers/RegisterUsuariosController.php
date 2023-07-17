@@ -15,7 +15,7 @@ if (!empty($_POST["btnregistro"])) {
         $emailu = $_POST["emailu"];
         $id_departamento = $_POST["id_departamento"];
         //Se crea variable para la implementación de la conexión y la inserción de datos con una consulta.
-        $sql = $conexion->query("insert into usuarios(nombreu,appu,apmu,emailu,id_departamento)
+        $sql = $conexion->query("INSERT INTO usuarios(nombreu,appu,apmu,emailu,id_departamento)
                     values ('$nombreu','$appu','$apmu','$emailu','$id_departamento')");
         if ($sql == 1) {
             echo '<div class="alert alert-success text-center"><i class="bi bi-person-add"></i> Usuario Registrado Correctamente</div>';

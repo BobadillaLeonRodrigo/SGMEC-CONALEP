@@ -9,7 +9,7 @@ if (!empty($_POST["btnregistro"])) {
         $tipo_estado = $_POST["tipo_estado"];
         $observaciones = $_POST["observaciones"];
         //Se crea variable para la implementación de la conexión y la inserción de datos con una consulta.
-        $sql = $conexion->query("insert into estado(tipo_estado,observaciones)
+        $sql = $conexion->query("INSERT INTO estado(tipo_estado,observaciones)
                     values ('$tipo_estado','$observaciones')");
         if ($sql == 1) {
             echo '<div class="alert alert-success text-center"><i class="bi bi-person-add"></i> Edificio Registrado Correctamente</div>';

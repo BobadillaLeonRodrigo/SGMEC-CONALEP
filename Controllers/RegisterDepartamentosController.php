@@ -9,7 +9,7 @@ if (!empty($_POST["btnregistro"])) {
         $tipo_departamento = $_POST["tipo_departamento"];
         $descripcion = $_POST["descripcion"];
         //Se crea variable para la implementación de la conexión y la inserción de datos con una consulta.
-        $sql = $conexion->query("insert into departamento(tipo_departamento,descripcion)
+        $sql = $conexion->query("INSERT INTO departamento(tipo_departamento,descripcion)
                     values ('$tipo_departamento','$descripcion')");
         if ($sql == 1) {
             echo '<div class="alert alert-success text-center"><i class="bi bi-person-add"></i> Departamento Registrado Correctamente</div>';

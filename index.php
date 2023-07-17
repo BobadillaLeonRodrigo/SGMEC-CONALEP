@@ -25,7 +25,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <i class="bi bi-house" style="color: #00ff40"></i>
+                    <i class="bi bi-box-arrow-down" style="color: #00ff40"></i>
                 </div>
                 <div class="sidebar-brand-text mx-2"><strong>
                         <h4>CONALEP</h4>
@@ -52,13 +52,13 @@
             <!-- Nav Item - Utilities Collapse Menu -->
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="Equipos.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Equipos</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="Reportes.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Reportes</span></a>
             </li>
@@ -414,8 +414,7 @@
                                                 include "Models/conexion.php";
                                                 include "Controllers/DeletUsuariosController.php";
                                                 $sql = $conexion->query("SELECT usuarios.id_usuario,usuarios.nombreu, usuarios.appu, usuarios.apmu, usuarios.emailu,departamento.tipo_departamento
-                                                                            FROM usuarios
-		                                                                        JOIN departamento ON usuarios.id_departamento = departamento.id_departamento
+                                                                            FROM usuarios JOIN departamento ON usuarios.id_departamento = departamento.id_departamento
                                                                 ");
                                                 while ($datos = $sql->fetch_object()) { ?>
                                                     <tr>
