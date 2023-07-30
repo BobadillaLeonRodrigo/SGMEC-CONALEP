@@ -25,14 +25,12 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <i class="bi bi-box-arrow-down" style="color: #00ff40"></i>
+                    <i class="bi bi-person-workspace" style="color: #00ff40"></i>
                 </div>
-                <div class="sidebar-brand-text mx-2"><strong>
-                        <h4>CONALEP</h4>
-                    </strong></div>
+                <div class="sidebar-brand-text mx-2"><strong><h4>CONALEP</h4></strong></div>
             </a>
             <!-- Divider -->
-            <hr class="sidebar-divider my-0 border border-3 border-success">
+            <hr class="sidebar-divider my-0 border border-3">
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">
@@ -41,7 +39,7 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider border border-3 border-success">
+            <hr class="sidebar-divider border border-3">
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -53,18 +51,18 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="Equipos.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-pc-display" style="color:#00ff40"></i>
                     <span>Equipos</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="Reportes.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-journals" style="color:#00ff40"></i>
                     <span>Reportes</span></a>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider border border-3 border-success">
+            <hr class="sidebar-divider border border-3">
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -74,30 +72,27 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="Estados.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-bandaid" style="color:#00ff40"></i>
                     <span>Estados</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="Ubicacion.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-geo-alt" style="color:#00ff40"></i>
                     <span>Ubicación</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="Mantenimiento.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-gear-wide-connected" style="color:#00ff40"></i>
                     <span>Mantenimiento</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="Departamentos.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-building-fill-check" style="color:#00ff40"></i>
                     <span>Departamentos</span></a>
             </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block border border-3 border-success">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -154,7 +149,7 @@
                                                 echo $row;
                                                 ?>
                                                 <!--Agregar Iconos para cada Tabla Correspondiente-->
-                                                <i class="bi bi-person-plus-fill"></i>
+                                                <i class="bi bi-person-circle"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -179,7 +174,7 @@
                                                 echo $row;
                                                 ?>
                                                 <!--Agregar Iconos para cada Tabla Correspondiente-->
-                                                <i class="fas fa-dollar-sign text-gray-300"></i>
+                                                <i class="bi bi-journals"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -193,18 +188,18 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase text-center mb-1"><strong>Total de Mantenimientos</strong></div>
+                                            <div class="text-xs font-weight-bold text-info text-uppercase text-center mb-1"><strong>Total de Equipos</strong></div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800 text-center">
                                                 <?php
                                                 //Se incluye la Conexion a la base de datos y se organizan por medio de Id de cada tabla.
                                                 include 'Models/conexion.php';
-                                                $query = "SELECT id_mantenimiento FROM mantenimiento ORDER BY id_mantenimiento";
+                                                $query = "SELECT id_equipo FROM equipos ORDER BY id_equipo";
                                                 $query_run = mysqli_query($conexion, $query);
                                                 $row = mysqli_num_rows($query_run);
                                                 echo $row;
                                                 ?>
                                                 <!--Agregar Iconos para cada Tabla Correspondiente-->
-                                                <i class="fas fa-dollar-sign text-gray-300"></i>
+                                                <i class="bi bi-pc-display"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -229,7 +224,7 @@
                                                 echo $row;
                                                 ?>
                                                 <!--Agregar Iconos para cada Tabla Correspondiente-->
-                                                <i class="fas fa-dollar-sign text-gray-300"></i>
+                                                <i class="bi bi-bandaid"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -254,7 +249,7 @@
                                                 echo $row;
                                                 ?>
                                                 <!--Agregar Iconos para cada Tabla Correspondiente-->
-                                                <i class="fas fa-dollar-sign text-gray-300"></i>
+                                                <i class="bi bi-geo-alt"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -279,7 +274,7 @@
                                                 echo $row;
                                                 ?>
                                                 <!--Agregar Iconos para cada Tabla Correspondiente-->
-                                                <i class="fas fa-dollar-sign text-gray-300"></i>
+                                                <i class="bi bi-building-fill-check"></i>
                                             </div>
                                         </div>
                                     </div>

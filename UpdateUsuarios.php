@@ -36,18 +36,15 @@
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
-
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <i class="bi bi-box-arrow-down" style="color: #00ff40"></i>
+                    <i class="bi bi-person-workspace" style="color: #00ff40"></i>
                 </div>
                 <div class="sidebar-brand-text mx-2"><strong><h4>CONALEP</h4></strong></div>
             </a>
-
             <!-- Divider -->
-            <hr class="sidebar-divider my-0 border border-3 border-success">
-
+            <hr class="sidebar-divider my-0 border border-3">
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">
@@ -56,7 +53,7 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider border border-3 border-success">
+            <hr class="sidebar-divider border border-3">
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -68,18 +65,18 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="Equipos.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-pc-display" style="color:#00ff40"></i>
                     <span>Equipos</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="Reportes.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-journals" style="color:#00ff40"></i>
                     <span>Reportes</span></a>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider border border-3 border-success">
+            <hr class="sidebar-divider border border-3">
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -89,30 +86,27 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="Estados.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-bandaid" style="color:#00ff40"></i>
                     <span>Estados</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="Ubicacion.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-geo-alt" style="color:#00ff40"></i>
                     <span>Ubicación</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="Mantenimiento.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-gear-wide-connected" style="color:#00ff40"></i>
                     <span>Mantenimiento</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="Departamentos.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-building-fill-check" style="color:#00ff40"></i>
                     <span>Departamentos</span></a>
             </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block border border-3 border-success">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -142,114 +136,8 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h1 mb-0 text-gray-800">Total de Registros de Tablas</h1>
-                        <a href="./php/index.php" class="mb-0 d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm">
-                            <i class="fas fa-download fa-sm" style="color: #00ff40"></i> Respaldo de Base de Datos</a>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-dark text-uppercase mb-1"><strong>Total de Registros</strong></div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <?php
-                                                    //Se incluye la Conexion a la base de datos y se organizan por medio de Id de cada tabla.
-                                                    include 'Models/conexion.php';
-                                                        $query = "SELECT id_usuario FROM usuarios ORDER BY id_usuario";
-                                                        $query_run = mysqli_query($conexion, $query);
-                                                        $row = mysqli_num_rows($query_run);
-                                                            echo $row;
-                                                ?>
-                                                </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="bi bi-person-plus-fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total de Departamentos</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                    <?php
-                                                        //Se incluye la Conexion a la base de datos y se organizan por medio de Id de cada tabla.
-                                                        include 'Models/conexion.php';
-                                                            $query = "SELECT id_departamento FROM departamento ORDER BY id_departamento";
-                                                            $query_run = mysqli_query($conexion, $query);
-                                                            $row = mysqli_num_rows($query_run);
-                                                                echo $row;
-                                                    ?>
-                                                </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h1 mb-0 text-gray-800"><strong>Actualizar Usuarios</strong></h1>
                     </div>
 
                     <!-- Content Row -->

@@ -25,14 +25,12 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <i class="bi bi-box-arrow-down" style="color: #00ff40"></i>
+                    <i class="bi bi-person-workspace" style="color: #00ff40"></i>
                 </div>
-                <div class="sidebar-brand-text mx-2"><strong>
-                        <h4>CONALEP</h4>
-                    </strong></div>
+                <div class="sidebar-brand-text mx-2"><strong><h4>CONALEP</h4></strong></div>
             </a>
             <!-- Divider -->
-            <hr class="sidebar-divider my-0 border border-3 border-success">
+            <hr class="sidebar-divider my-0 border border-3">
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">
@@ -41,7 +39,7 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider border border-3 border-success">
+            <hr class="sidebar-divider border border-3">
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -53,18 +51,18 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="Equipos.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-pc-display" style="color:#00ff40"></i>
                     <span>Equipos</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="Reportes.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-journals" style="color:#00ff40"></i>
                     <span>Reportes</span></a>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider border border-3 border-success">
+            <hr class="sidebar-divider border border-3">
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -74,30 +72,27 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="Estados.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-bandaid" style="color:#00ff40"></i>
                     <span>Estados</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="Ubicacion.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-geo-alt" style="color:#00ff40"></i>
                     <span>Ubicación</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="Mantenimiento.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-gear-wide-connected" style="color:#00ff40"></i>
                     <span>Mantenimiento</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="Departamentos.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="bi bi-building-fill-check" style="color:#00ff40"></i>
                     <span>Departamentos</span></a>
             </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block border border-3 border-success">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
