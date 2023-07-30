@@ -166,7 +166,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <label class="text-dark"><strong>¿Identificador del Equipo?</strong></label>
-                                                    <input class="form-control" name="id_equipo" value="<?= $datos->id_equipo ?>" type="text" placeholder="Numero de Serie." />
+                                                    <input class="form-control" name="id_equipo" value="<?= $datos->id_equipo ?>"  readOnly="readOnly" type="text" placeholder="Numero de Serie." />
                                                 </div>
                                             </div>
                                             <div class="col-md-3">

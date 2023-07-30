@@ -21,11 +21,16 @@ if (!empty($_POST["btnmodificar"])) {
         $fallo_repor = $_POST["fallo_repor"];
         $id_ubicacion = $_POST["id_ubicacion"];
         // se realiza la consulta para agregar que campos se van a actualizar del formulario
-        $sql = $conexion->query("UPDATE equipos SET id_equipo='$id_equipo', modelo='$modelo', marca='$marca', observaciones='$observaciones', especificaciones=$especificaciones, fallo_repor=$fallo_repor, id_ubicacion=$id_ubicacion WHERE id_equipo=$id ");
-                    //si se registro correctamente redireccionara a la pagina principal
+        $sql = $conexion->query("UPDATE equipos SET id_equipo='$id_equipo',
+                                    modelo='$modelo',
+                                    marca='$marca',
+                                    observaciones='$observaciones',
+                                    especificaciones='$especificaciones',
+                                    fallo_repor='$fallo_repor',
+                                    id_ubicacion='$id_ubicacion' WHERE id_equipo=$id ");
+        //si se registro correctamente redireccionara a la pagina principal
         if ($sql == 1) {
             // si se modifico correctamente
-            // Redirige a otra página
             echo '<div class="alert alert-success text-center"><i class="bi bi-person-add"></i> Equipo Modificado Correctamente</div>';
         } else {
             //si al modificar marca error
