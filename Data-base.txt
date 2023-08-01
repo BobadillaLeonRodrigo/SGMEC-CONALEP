@@ -38,7 +38,7 @@ USE sgmec;
 	CREATE TABLE Equipos(
 	id_equipo INT(15) PRIMARY KEY,
 	id_ubicacion INT,
-	modelo VARCHAR(150) NOT NULL,
+	numserie VARCHAR(150) NOT NULL,
 	marca VARCHAR(150) NOT NULL,
 	especificaciones VARCHAR(1500) NOT NULL,
 	observaciones VARCHAR(500) NOT NULL,
@@ -65,3 +65,6 @@ USE sgmec;
 */
 	SELECT usuarios.id_usuario,usuarios.nombreu, usuarios.appu, usuarios.apmu, usuarios.emailu,departamento.tipo_departamento FROM usuarios
 	JOIN departamento ON usuarios.id_departamento = departamento.id_departamento
+
+	SELECT equipos.id_equipo,equipos.modelo,equipos.marca,equipos.especificaciones,equipos.observaciones,equipos.fallo_repor,ubicacion.ubicacion FROM equipos
+	JOIN ubicacion ON equipos.id_ubicacion = ubicacion.id_ubicacion
