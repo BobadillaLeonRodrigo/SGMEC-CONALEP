@@ -167,7 +167,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <label class="text-dark"><strong>¿Modelo del Equipo?</strong></label>
-                                                    <input class="form-control" name="modelo" value="<?= $datos->modelo ?>" type="text" placeholder="ThinkCenter, Workstation, etc." />
+                                                    <input class="form-control" name="numserie" value="<?= $datos->numserie ?>" type="text" placeholder="ThinkCenter, Workstation, etc." />
                                                 </div>
                                             </div>
                                             <div class="col-md-3">

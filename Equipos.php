@@ -150,20 +150,20 @@
                                         <div class="row py-1 mb-3">
                                             <div class="col-md-3">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <label class="text-dark"><strong>¿Identificador del Equipo?</strong></label>
-                                                    <input class="form-control" name="id_equipo" type="text" placeholder="Numero de Serie." />
+                                                    <label class="text-dark"><strong>Numero del Equipo?</strong></label>
+                                                    <input class="form-control" name="id_equipo" type="text" placeholder="1, 2, 3, etc" />
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <label class="text-dark"><strong>¿Modelo del Equipo?</strong></label>
-                                                    <input class="form-control" name="modelo" type="text" placeholder="ThinkCenter, Workstation, etc." />
+                                                    <label class="text-dark"><strong>¿Numero de Serie del Equipo?</strong></label>
+                                                    <input class="form-control" name="numserie" type="text" placeholder="N129SDSR21" />
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <label class="text-dark"><strong>¿Marca del Equipo?</strong></label>
-                                                    <input class="form-control" name="marca" type="text" placeholder="Del procesador o Gabinete." />
+                                                    <input class="form-control" name="marca" type="text" placeholder="ThinkCenter" />
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -266,13 +266,13 @@
                                                 <?php
                                                 include "Models/conexion.php";
                                                 include "Controllers/DeletEquiposController.php";
-                                                $sql = $conexion->query("SELECT equipos.id_equipo,equipos.modelo,equipos.marca,equipos.especificaciones,equipos.observaciones,equipos.fallo_repor,ubicacion.ubicacion FROM equipos
+                                                $sql = $conexion->query("SELECT equipos.id_equipo,equipos.numserie,equipos.marca,equipos.especificaciones,equipos.observaciones,equipos.fallo_repor,ubicacion.ubicacion FROM equipos
                                                 JOIN ubicacion ON equipos.id_ubicacion = ubicacion.id_ubicacion
                                                                 ");
                                                 while ($datos = $sql->fetch_object()) { ?>
                                                     <tr>
                                                         <td><?= $datos->id_equipo ?></td>
-                                                        <td><?= $datos->modelo ?></td>
+                                                        <td><?= $datos->numserie ?></td>
                                                         <td><?= $datos->marca ?></td>
                                                         <td><?= $datos->ubicacion ?></td>
                                                         <td><?= $datos->fallo_repor ?></td>

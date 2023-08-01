@@ -3,7 +3,7 @@ if (!empty($_POST["btnmodificar"])) {
     if (
         //Verificamos que los campos esten completos en el formulario para modificar
         !empty($_POST["id_equipo"]) and
-        !empty($_POST["modelo"]) and
+        !empty($_POST["numserie"]) and
         !empty($_POST["marca"]) and
         !empty($_POST["observaciones"]) and
         !empty($_POST["especificaciones"]) and
@@ -14,7 +14,7 @@ if (!empty($_POST["btnmodificar"])) {
         $id = $_POST["id"];
         //Almacenamos los datos del formulario
         $id_equipo = $_POST["id_equipo"];
-        $modelo = $_POST["modelo"];
+        $numserie = $_POST["numserie"];
         $marca = $_POST["marca"];
         $observaciones = $_POST["observaciones"];
         $especificaciones = $_POST["especificaciones"];
@@ -22,7 +22,7 @@ if (!empty($_POST["btnmodificar"])) {
         $id_ubicacion = $_POST["id_ubicacion"];
         // se realiza la consulta para agregar que campos se van a actualizar del formulario
         $sql = $conexion->query("UPDATE equipos SET id_equipo='$id_equipo',
-                                    modelo='$modelo',
+                                    numserie='$numserie',
                                     marca='$marca',
                                     observaciones='$observaciones',
                                     especificaciones='$especificaciones',

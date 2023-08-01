@@ -12,7 +12,7 @@ if (!empty($_POST["btnregistro"])) {
         $sql = $conexion->query("INSERT INTO departamento(tipo_departamento,descripcion)
                     values ('$tipo_departamento','$descripcion')");
         if ($sql == 1) {
-            echo '<div class="alert alert-success text-center"><i class="bi bi-person-add"></i> Departamento Registrado Correctamente</div>';
+            echo '<div class="alert alert-success text-center"><i class="bi bi-building-fill-check"></i> Departamento Registrado Correctamente</div>';
         } else {
             echo '<div class="alert alert-danger text-center"><i class="bi bi-exclamation-triangle-fill" style="color: red"></i> Error al Registrar un Departamento</div>';
         }

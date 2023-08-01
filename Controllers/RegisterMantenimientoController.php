@@ -12,7 +12,7 @@ if (!empty($_POST["btnregistro"])) {
         $sql = $conexion->query("INSERT INTO mantenimiento (tipo_mantenimiento,descripcion)
                     values ('$tipo_mantenimiento','$descripcion')");
         if ($sql == 1) {
-            echo '<div class="alert alert-success text-center"><i class="bi bi-person-add"></i> Mantenimiento Registrado Correctamente</div>';
+            echo '<div class="alert alert-success text-center"><i class="bi bi-gear-wide-connected"></i> Mantenimiento Registrado Correctamente</div>';
         } else {
             echo '<div class="alert alert-danger text-center"><i class="bi bi-exclamation-triangle-fill" style="color: red"></i> Error al Registrar un Mantenimiento</div>';
         }
