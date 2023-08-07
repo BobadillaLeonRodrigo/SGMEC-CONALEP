@@ -1,3 +1,8 @@
+<?php
+    include "Models/conexion.php";
+        $id = $_GET["id"];
+            $sql = $conexion->query("SELECT * FROM reportes WHERE id_reporte=$id");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -124,7 +129,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h1 mb-0 text-gray-800"><strong>Reportes</strong></h1>
+                        <h1 class="h1 mb-0 text-gray-800"><strong>Actualizar Reportes</strong></h1>
                     </div>
 
                     <!-- Content Row -->
@@ -136,7 +141,7 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-dark"><strong><i class="bi bi-card-checklist"></i> Formulario de Registro de Reportes</h6></strong>
+                                    <h6 class="m-0 font-weight-bold text-dark"><strong><i class="bi bi-card-checklist"></i> Formulario de Modificación de Reportes</h6></strong>
                                 </div>
                                 <?php
                                 // Se llaman los archivos a utilizar para el funcionamiendo del formulario en el registro de usuarios
@@ -147,11 +152,16 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <form method="POST">
+                                        <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
+                                            <?php
+                                                include "Controllers/EditReporteController.php";
+                                                    while ($datos = $sql->fetch_object()) {
+                                            ?>
                                         <div class="row py-1 mb-3">
                                             <div class="col-md-4">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <label class="text-dark"><strong>¿Qué tipo de mantenimiento se realizo?</strong></label>
-                                                    <select class="form-control" type="text" name="id_mantenimiento">
+                                                    <select class="form-control" type="text" name="id_mantenimiento" value="<?= $datos->id_mantenimiento ?>">
                                                         <?php
                                                         // Conexión a la base de datos
                                                         $conexion = mysqli_connect("localhost", "root", "", "sgmec");
@@ -182,7 +192,7 @@
                                             <div class="col-md-4">
                                             <div class="form-floating mb-3 mb-md-0">
                                                     <label class="text-dark"><strong>¿Equipo al que se realizo el Reporte?</strong></label>
-                                                    <select class="form-control" type="text" name="id_equipo">
+                                                    <select class="form-control" type="text" name="id_equipo" value="<?= $datos->id_equipo ?>">
                                                         <?php
                                                         // Conexión a la base de datos
                                                         $conexion = mysqli_connect("localhost", "root", "", "sgmec");
@@ -213,14 +223,20 @@
                                             <div class="col-md-4">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <label class="text-dark"><strong>¿Fecha de realización del reporte?</strong></label>
-                                                    <input class="form-control" name="fecha" type="date" placeholder="Ingrese Fecha" />
+                                                    <input class="form-control" name="fecha" type="date" placeholder="Ingrese Fecha" value="<?= $datos->fecha ?>"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="py-1 col-md-6">
                                                 <div class="form-floating mb-md-0">
-                                                    <label class="text-dark"><strong>¿Estado del Equipo Reportado?</strong></label>
+                                                    <label class="text-dark"><strong>¿Descripción del Reporte?</strong></label>
+                                                    <input class="form-control" name="descripcion" type="text" placeholder="Comentarios Finales" value="<?= $datos->descripcion ?>"/>
+                                                </div>
+                                            </div>
+                                            <div class="py-1 col-md-6">
+                                                <div class="form-floating mb-md-0">
+                                                    <label class="text-dark"><strong>¿Descripción del Reporte?</strong></label>
                                                     <select class="form-control" type="text" name="id_estado">
                                                         <?php
                                                         // Conexión a la base de datos
@@ -246,90 +262,16 @@
                                                         // Cerrar la conexión a la base de datos
                                                         mysqli_close($conexion);
                                                         ?>
-                                                    </select>
-                                                </div>
+                                                    </select>                                                </div>
                                             </div>
-                                            <div class="py-1 col-md-6">
-                                                <div class="form-floating mb-md-0">
-                                                    <label class="text-dark"><strong>¿Descripción del Reporte?</strong></label>
-                                                    <textarea class="form-control" name="descripcion" type="text" placeholder="Comentarios Finales"></textarea>
-                                                </div>
-                                            </div>
+                                        <?php
+                                            }
+                                        ?>
                                         </div>
-                                        <input class="btn btn-outline-success text-dark" data-bs-toggle="button" autocomplete="off" type="submit" name="btnregistro" size="10" value="Registrar Reporte">
+                                        <input class="btn btn-outline-success text-dark" data-bs-toggle="button" autocomplete="off" type="submit" name="btnmodificar" size="10" value="Modificar Reporte">
                                     </form>
                                 </div>
                             </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-                        <!-- Content Column -->
-                        <div class="col-lg-12 mb-6">
-                            <!-- Project Card Example -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-dark"><strong><i class="bi bi-table"></i> Tabla de Reportes</h6></strong>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead class="text-center text-dark bg-success">
-                                                <tr>
-                                                    <th>Numero de Reporte</th>
-                                                    <th>Num de Serie del Equipo</th>
-                                                    <th>Tipo Mantenimiento</th>
-                                                    <th>Descripción</th>
-                                                    <th>Fecha de Realzación</th>
-                                                    <th>Estado</th>
-                                                    <th>Acciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot class="text-center">
-                                                <tr>
-                                                    <th>Numero de Reporte</th>
-                                                    <th>Num de Serie del Equipo</th>
-                                                    <th>Tipo Mantenimiento</th>
-                                                    <th>Descripción</th>
-                                                    <th>Fecha de Realzación</th>
-                                                    <th>Estado</th>
-                                                    <th>Acciones</th>
-                                                </tr>
-                                            </tfoot>
-                                            <tbody class="text-center">
-                                                <?php
-                                                include "Models/conexion.php";
-                                                include "Controllers/DeletReporteController.php";
-                                                $sql = $conexion->query("SELECT reportes.id_reporte, equipos.numserie, mantenimiento.tipo_mantenimiento,reportes.descripcion, reportes.fecha, estado.tipo_estado
-                                                                            FROM reportes
-                                                                                JOIN equipos ON reportes.id_equipo = equipos.id_equipo
-                                                                                JOIN mantenimiento ON reportes.id_mantenimiento = mantenimiento.id_mantenimiento
-                                                                                JOIN estado ON reportes.id_estado = estado.id_estado
-                                                                    ");
-                                                while ($datos = $sql->fetch_object()) { ?>
-                                                    <tr>
-                                                        <td><?= $datos->id_reporte ?></td>
-                                                        <td><?= $datos->numserie ?></td>
-                                                        <td><?= $datos->tipo_mantenimiento ?></td>
-                                                        <td><?= $datos->descripcion ?></td>
-                                                        <td><?= $datos->fecha ?></td>
-                                                        <td><?= $datos->tipo_estado ?></td>
-                                                        <td>
-                                                            <a href="UpdateReportes.php?id=<?= $datos->id_reporte ?>" class="btn btn-small btn-success" style="color:black"><i class="bi bi-pencil-fill"></i></a>
-                                                            <a href="Reportes.php?id=<?= $datos->id_reporte ?>" class="btn btn-small btn-danger" style="color:black"><i class="bi bi-trash"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                <?php }
-                                                ?>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
 
                     </div>
