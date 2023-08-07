@@ -15,7 +15,7 @@ if (!empty($_POST["btnmodificar"])) {
         if ($sql == 1) {
             // si se modifico correctamente
             // Redirige a otra página
-            header("Location: ../Mantenimiento.php");
+            echo '<div class="alert alert-success text-center"><i class="bi bi-gear-wide-connected"></i> Mantenimiento Modificado Correctamente</div>';
         } else {
             //si al modificar marca error
             echo '<div class="alert alert-danger text-center">Error al Modificar el Mantenimiento <i class="fa-solid fa-triangle-exclamation fa-xl" style="color: red"></i></div>';

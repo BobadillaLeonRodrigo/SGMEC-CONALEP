@@ -31,7 +31,7 @@ if (!empty($_POST["btnmodificar"])) {
         //si se registro correctamente redireccionara a la pagina principal
         if ($sql == 1) {
             // si se modifico correctamente
-            echo '<div class="alert alert-success text-center"><i class="bi bi-person-add"></i> Equipo Modificado Correctamente</div>';
+            echo '<div class="alert alert-success text-center"><i class="bi bi-pc-display"></i> Equipo Modificado Correctamente</div>';
         } else {
             //si al modificar marca error
             echo '<div class="alert alert-danger text-center">Error al Modificar el Equipo <i class="fa-solid fa-triangle-exclamation fa-xl" style="color: red"></i></div>';

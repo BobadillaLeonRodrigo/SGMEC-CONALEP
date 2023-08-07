@@ -209,7 +209,7 @@
                                                                 echo "<option value='$id_ubicacion'>$ubicacion</option>";
                                                             }
                                                         } else {
-                                                            echo "<option value=''>No se Encuentras Ubicaciones</option>";
+                                                            echo "<option value=''>No se Encuentran Ubicaciones</option>";
                                                         }
                                                         // Cerrar la conexión a la base de datos
                                                         mysqli_close($conexion);

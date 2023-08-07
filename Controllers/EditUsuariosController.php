@@ -13,7 +13,11 @@ if (!empty($_POST["btnmodificar"])) {
         $emailu = $_POST["emailu"];
         $id_departamento = $_POST["id_departamento"];
         // se realiza la consulta para agregar que campos se van a actualizar del formulario
-        $sql = $conexion->query("UPDATE usuarios SET nombreu='$nombreu', appu='$appu', apmu='$apmu', emailu='$emailu', id_departamento=$id_departamento WHERE id_usuario=$id ");
+        $sql = $conexion->query("UPDATE usuarios SET nombreu='$nombreu',
+                                    appu='$appu',
+                                    apmu='$apmu',
+                                    emailu='$emailu',
+                                    id_departamento=$id_departamento WHERE id_usuario=$id ");
         //si se registro correctamente redireccionara a la pagina principal
         if ($sql == 1) {
             // si se modifico correctamente

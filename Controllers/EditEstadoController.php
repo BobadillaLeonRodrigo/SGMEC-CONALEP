@@ -15,7 +15,7 @@ if (!empty($_POST["btnmodificar"])) {
         if ($sql == 1) {
             // si se modifico correctamente
             // Redirige a otra página
-            header("Location: ../Estados.php");
+            echo '<div class="alert alert-success text-center"><i class="bi bi-bandaid"></i> Estado Modificado Correctamente</div>';
         } else {
             //si al modificar marca error
             echo '<div class="alert alert-danger text-center">Error al Modificar el Edificio <i class="fa-solid fa-triangle-exclamation fa-xl" style="color: red"></i></div>';
