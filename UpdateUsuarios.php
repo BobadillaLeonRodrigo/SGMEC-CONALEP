@@ -83,13 +83,6 @@
                 Tablas Secundarias.
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="Estados.php">
-                    <i class="bi bi-bandaid" style="color:#00ff40"></i>
-                    <span>Estados</span></a>
-            </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="Ubicacion.php">
                     <i class="bi bi-geo-alt" style="color:#00ff40"></i>

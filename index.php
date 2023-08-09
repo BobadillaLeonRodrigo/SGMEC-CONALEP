@@ -69,13 +69,6 @@
                 Tablas Secundarias.
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="Estados.php">
-                    <i class="bi bi-bandaid" style="color:#00ff40"></i>
-                    <span>Estados</span></a>
-            </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="Ubicacion.php">
                     <i class="bi bi-geo-alt" style="color:#00ff40"></i>
@@ -213,18 +206,18 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-danger text-uppercase text-center mb-1"><strong>Total de Estados</strong></div>
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase text-center mb-1"><strong>Total de Mantenimientos</strong></div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800 text-center">
                                                 <?php
                                                 //Se incluye la Conexion a la base de datos y se organizan por medio de Id de cada tabla.
                                                 include 'Models/conexion.php';
-                                                $query = "SELECT id_estado FROM estado ORDER BY id_estado";
+                                                $query = "SELECT id_mantenimiento FROM mantenimiento ORDER BY id_mantenimiento";
                                                 $query_run = mysqli_query($conexion, $query);
                                                 $row = mysqli_num_rows($query_run);
                                                 echo $row;
                                                 ?>
                                                 <!--Agregar Iconos para cada Tabla Correspondiente-->
-                                                <i class="bi bi-bandaid"></i>
+                                                <i class="bi bi-gear-wide-connected"></i>
                                             </div>
                                         </div>
                                     </div>
