@@ -1,12 +1,6 @@
 CREATE DATABASE sgmec;
 USE sgmec;
 /*Tablas que no tiene llave foraneas*/
-	CREATE TABLE Estado(
-	id_estado INT(8) PRIMARY KEY AUTO_INCREMENT,
-	tipo_estado VARCHAR (100) NOT NULL,
-	observaciones VARCHAR(500) NOT NULL
-	);
-
 	CREATE TABLE Ubicacion(
 	id_ubicacion INT(8)PRIMARY KEY AUTO_INCREMENT,
 	ubicacion VARCHAR(100) NOT NULL,
@@ -48,13 +42,12 @@ USE sgmec;
 
 	CREATE TABLE Reportes(
 	id_reporte INT(8)  PRIMARY KEY AUTO_INCREMENT,
-	id_mantenimiento INT,
-	id_usuario INT,
-	id_equipo INT,
+	tipo_estado VARCHAR(100) NOT NULL,
 	descripcion VARCHAR(200) NOT NULL,
-	fecha DATE,
+	id_mantenimiento INT,
+	id_equipo INT,
+	fecha DATE NOT NULL,
 	FOREIGN KEY(id_mantenimiento)REFERENCES Mantenimiento (id_mantenimiento),
-	FOREIGN KEY(id_usuario)REFERENCES Usuarios (id_usuario),
 	FOREIGN KEY(id_equipo)REFERENCES Equipos (id_equipo)
 	);
 
@@ -63,8 +56,17 @@ USE sgmec;
 	2.- Cambiar el id de la otra tablas heredada por el tipo de texto a mostrar (JOIN).
 	3.- Comparativa de las tablas con las mismas id a heredar(ON).
 */
-	SELECT usuarios.id_usuario,usuarios.nombreu, usuarios.appu, usuarios.apmu, usuarios.emailu,departamento.tipo_departamento FROM usuarios
-	JOIN departamento ON usuarios.id_departamento = departamento.id_departamento
 
-	SELECT equipos.id_equipo,equipos.modelo,equipos.marca,equipos.especificaciones,equipos.observaciones,equipos.fallo_repor,ubicacion.ubicacion FROM equipos
-	JOIN ubicacion ON equipos.id_ubicacion = ubicacion.id_ubicacion
+	SELECT usuarios.id_usuario,usuarios.nombreu, usuarios.appu, usuarios.apmu, usuarios.emailu,departamento.tipo_departamento 
+		FROM usuarios
+		JOIN departamento ON usuarios.id_departamento = departamento.id_departamento
+
+	SELECT equipos.id_equipo,equipos.modelo,equipos.marca,equipos.especificaciones,equipos.observaciones,equipos.fallo_repor,ubicacion.ubicacion 
+		FROM equipos
+		JOIN ubicacion ON equipos.id_ubicacion = ubicacion.id_ubicacion
+
+	SELECT Reportes.`id_reporte`,Equipos.`numserie`,Mantenimiento.`tipo_mantenimiento`,Reportes.`fecha`,Reportes.`descripcion`,Reportes.`tipo_estado`
+		FROM Reportes
+		JOIN Equipos ON Reportes.`id_equipo` = Equipos.`id_equipo`
+		JOIN Mantenimiento ON Reportes.`id_mantenimiento` = Mantenimiento.`id_mantenimiento`
+
