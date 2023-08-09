@@ -69,13 +69,6 @@
                 Tablas Secundarias.
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="Estados.php">
-                    <i class="bi bi-bandaid" style="color:#00ff40"></i>
-                    <span>Estados</span></a>
-            </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="Ubicacion.php">
                     <i class="bi bi-geo-alt" style="color:#00ff40"></i>
@@ -220,39 +213,14 @@
                                         <div class="row">
                                             <div class="py-1 col-md-6">
                                                 <div class="form-floating mb-md-0">
-                                                    <label class="text-dark"><strong>¿Estado del Equipo Reportado?</strong></label>
-                                                    <select class="form-control" type="text" name="id_estado">
-                                                        <?php
-                                                        // Conexión a la base de datos
-                                                        $conexion = mysqli_connect("localhost", "root", "", "sgmec");
-                                                        // Verificar la conexión
-                                                        if (mysqli_connect_errno()) {
-                                                            echo "Error en la conexión a la base de datos: " . mysqli_connect_error();
-                                                        }
-                                                        // Consulta para obtener los datos de la tabla departamento
-                                                        $consulta = "SELECT id_estado, tipo_estado FROM estado";
-                                                        $resultado = mysqli_query($conexion, $consulta);
-                                                        // Verificar si se obtuvieron resultados
-                                                        if (mysqli_num_rows($resultado) > 0) {
-                                                            // Iterar sobre los resultados y crear las opciones del select
-                                                            while ($fila = mysqli_fetch_assoc($resultado)) {
-                                                                $id_estado = $fila['id_estado'];
-                                                                $tipo_estado = $fila['tipo_estado'];
-                                                                echo "<option value='$id_estado'>$tipo_estado</option>";
-                                                            }
-                                                        } else {
-                                                            echo "<option value=''>No se encontran Estados</option>";
-                                                        }
-                                                        // Cerrar la conexión a la base de datos
-                                                        mysqli_close($conexion);
-                                                        ?>
-                                                    </select>
+                                                    <label class="text-dark"><strong>¿Que estado se encuentra el equipo?</strong></label>
+                                                    <input class="form-control" name="tipo_estado" type="text" placeholder="Activo, Inactivo, Mantenimiento, Desmantelado, etc." />
                                                 </div>
                                             </div>
                                             <div class="py-1 col-md-6">
                                                 <div class="form-floating mb-md-0">
                                                     <label class="text-dark"><strong>¿Descripción del Reporte?</strong></label>
-                                                    <textarea class="form-control" name="descripcion" type="text" placeholder="Comentarios Finales"></textarea>
+                                                    <input class="form-control" name="descripcion" type="text" placeholder="Comentarios Finales">
                                                 </div>
                                             </div>
                                         </div>
@@ -281,9 +249,9 @@
                                                     <th>Numero de Reporte</th>
                                                     <th>Num de Serie del Equipo</th>
                                                     <th>Tipo Mantenimiento</th>
+                                                    <th>Fecha de Realización</th>
+                                                    <th>Estado del Equipo</th>
                                                     <th>Descripción</th>
-                                                    <th>Fecha de Realzación</th>
-                                                    <th>Estado</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
@@ -292,9 +260,9 @@
                                                     <th>Numero de Reporte</th>
                                                     <th>Num de Serie del Equipo</th>
                                                     <th>Tipo Mantenimiento</th>
+                                                    <th>Fecha de Realización</th>
+                                                    <th>Estado del Equipo</th>
                                                     <th>Descripción</th>
-                                                    <th>Fecha de Realzación</th>
-                                                    <th>Estado</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </tfoot>
@@ -302,20 +270,19 @@
                                                 <?php
                                                 include "Models/conexion.php";
                                                 include "Controllers/DeletReporteController.php";
-                                                $sql = $conexion->query("SELECT reportes.id_reporte, equipos.numserie, mantenimiento.tipo_mantenimiento,reportes.descripcion, reportes.fecha, estado.tipo_estado
-                                                                            FROM reportes
-                                                                                JOIN equipos ON reportes.id_equipo = equipos.id_equipo
-                                                                                JOIN mantenimiento ON reportes.id_mantenimiento = mantenimiento.id_mantenimiento
-                                                                                JOIN estado ON reportes.id_estado = estado.id_estado
+                                                $sql = $conexion->query("SELECT Reportes.`id_reporte`,Equipos.`numserie`,Mantenimiento.`tipo_mantenimiento`,Reportes.`fecha`,Reportes.`descripcion`,Reportes.`tipo_estado`
+                                                                            FROM Reportes
+                                                                                JOIN Equipos ON Reportes.`id_equipo` = Equipos.`id_equipo`
+                                                                                    JOIN Mantenimiento ON Reportes.`id_mantenimiento` = Mantenimiento.`id_mantenimiento`
                                                                     ");
-                                                while ($datos = $sql->fetch_object()) { ?>
+                                                while ($datos = $sql->fetch_object()) {?>
                                                     <tr>
                                                         <td><?= $datos->id_reporte ?></td>
                                                         <td><?= $datos->numserie ?></td>
                                                         <td><?= $datos->tipo_mantenimiento ?></td>
-                                                        <td><?= $datos->descripcion ?></td>
-                                                        <td><?= $datos->fecha ?></td>
+                                                        <td><?= $datos->fecha ?></td> <!-- Variables que lo toma como descripcion -->
                                                         <td><?= $datos->tipo_estado ?></td>
+                                                        <td><?= $datos->descripcion ?></td> <!-- Variables que lo toma como fecha -->
                                                         <td>
                                                             <a href="UpdateReportes.php?id=<?= $datos->id_reporte ?>" class="btn btn-small btn-success" style="color:black"><i class="bi bi-pencil-fill"></i></a>
                                                             <a href="Reportes.php?id=<?= $datos->id_reporte ?>" class="btn btn-small btn-danger" style="color:black"><i class="bi bi-trash"></i></a>

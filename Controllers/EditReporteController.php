@@ -4,7 +4,8 @@ if (!empty($_POST["btnmodificar"])) {
         //Verificamos que los campos esten completos en el formulario para modificar
         !empty($_POST["id_mantenimiento"]) and
         !empty($_POST["id_equipo"]) and
-        !empty($_POST["descripcion"])  and
+        !empty($_POST["descripcion"]) and
+        !empty($_POST["tipo_estado"]) and
         !empty($_POST["fecha"])
     ) {
         //La id se manda por un metodo get en la parte inferior del titulo del formulario y se almacena la variable en el archivo global modificar_usuario.php parte superior
@@ -12,13 +13,15 @@ if (!empty($_POST["btnmodificar"])) {
         //Almacenamos los datos del formulario
         $id_mantenimiento = $_POST["id_mantenimiento"];
         $id_equipo = $_POST["id_equipo"];
-        $fecha = $_POST["fecha"];
         $descripcion = $_POST["descripcion"];
+        $tipo_estado = $_POST["tipo_estado"];
+        $fecha = $_POST["fecha"];
         // se realiza la consulta para agregar que campos se van a actualizar del formulario
         $sql = $conexion->query("UPDATE reportes SET id_mantenimiento='$id_mantenimiento',
                                     id_equipo='$id_equipo',
-                                    fecha='$fecha',
-                                    descripcion='$descripcion' WHERE id_reporte=$id ");
+                                    descripcion='$descripcion',
+                                    tipo_estado ='$tipo_estado',
+                                    fecha='$fecha' WHERE id_reporte=$id ");
         //si se registro correctamente redireccionara a la pagina principal
         if ($sql == 1) {
             // si se modifico correctamente
