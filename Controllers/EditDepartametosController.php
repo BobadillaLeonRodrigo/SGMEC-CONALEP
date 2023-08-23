@@ -10,12 +10,16 @@ if (!empty($_POST["btnmodificar"])) {
         $tipo_departamento = $_POST["tipo_departamento"];
         $descripcion = $_POST["descripcion"];
         // se realiza la consulta para agregar que campos se van a actualizar del formulario
-        $sql = $conexion->query("UPDATE departamento SET tipo_departamento='$tipo_departamento', descripcion='$descripcion' WHERE id_departamento=$id ");
+        $stmt = $conexion->prepare("UPDATE departamento SET tipo_departamento=?, descripcion=? WHERE id_departamento=?");
+        $stmt->bind_param("ssi", $tipo_departamento, $descripcion, $id);
+        $result = $stmt->execute();
+        $stmt->close();
         //si se registro correctamente redireccionara a la pagina principal
-        if ($sql == 1) {
+        if ($result) {
             // si se modifico correctamente
             // Redirige a otra página
-            header("Location: ../Departamentos.php");
+            echo '<div class="alert alert-success text-center"><i class="bi bi-building-fill-check"></i> Departamento Modificado Correctamente</div>';
+            echo '<script>setTimeout(function() { window.location.href = "http://localhost/SGMEC-Conalep/Departamentos.php"; }, 1000);</script>';
         } else {
             //si al modificar marca error
             echo '<div class="alert alert-danger text-center">Error al Modificar el Departamento <i class="fa-solid fa-triangle-exclamation fa-xl" style="color: red"></i></div>';

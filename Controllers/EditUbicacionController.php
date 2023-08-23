@@ -10,12 +10,16 @@ if (!empty($_POST["btnmodificar"])) {
         $ubicacion = $_POST["ubicacion"];
         $lugar = $_POST["lugar"];
         // se realiza la consulta para agregar que campos se van a actualizar del formulario
-        $sql = $conexion->query("UPDATE ubicacion SET ubicacion='$ubicacion', lugar='$lugar' WHERE id_ubicacion=$id ");
+        $stmt = $conexion->prepare("UPDATE ubicacion SET ubicacion=?, lugar=? WHERE id_ubicacion=?");
+        $stmt->bind_param("ssi", $ubicacion, $lugar, $id);
+        $result = $stmt->execute();
+        $stmt->close();
         //si se registro correctamente redireccionara a la pagina principal
-        if ($sql == 1) {
+        if ($result) {
             // si se modifico correctamente
             // Redirige a otra página
-            header("Location: ../Ubicacion.php");
+            echo '<div class="alert alert-success text-center"><i class="bi bi-geo-alt"></i> Ubicación Modificado Correctamente</div>';
+            echo '<script>setTimeout(function() { window.location.href = "http://localhost/SGMEC-Conalep/Ubicacion.php"; }, 1000);</script>';
         } else {
             //si al modificar marca error
             echo '<div class="alert alert-danger text-center">Error al Modificar el Edificio <i class="fa-solid fa-triangle-exclamation fa-xl" style="color: red"></i></div>';
